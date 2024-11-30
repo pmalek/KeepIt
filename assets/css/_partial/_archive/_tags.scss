@@ -25,3 +25,14 @@
     }
   }
 }
+
+.tag-in-list {
+  font-size: 0.7rem;
+  margin: 0.5rem;
+  text-align: right;
+  color: $global-font-secondary-color;
+
+  [theme=dark] & {
+    color: $global-font-secondary-color-dark;
+  }
+}
