@@ -124,6 +124,35 @@
                 Please enable JavaScript to view the comments powered by <a href="https://utteranc.es/">Utterances</a>.
             </noscript>
         {{- end -}}
+
+        {{- /* giscus - https://giscus.app/ */ -}}
+        {{- $giscus := $comment.giscus | default dict -}}
+        {{- if $giscus.enable -}}
+            <div id="giscus" class="comment"></div>
+                {{- /* TODO dynamic theme */ -}}
+                <script
+                    src="https://giscus.app/client.js"
+                    data-repo="{{ $giscus.repo }}"
+                    data-repo-id="{{ $giscus.repoId }}"
+                    data-category="{{ $giscus.category }}"
+                    data-category-id="{{ $giscus.categoryId }}"
+                    data-mapping="{{ $giscus.mapping }}"
+                    data-strict="{{ cond $giscus.strict 1 0 }}"
+                    data-reactions-enabled="{{ cond $giscus.reactions 1 0 }}"
+                    data-emit-metadata="{{ cond $giscus.emitMetadata 1 0 }}"
+                    data-input-position="{{ $giscus.inputPosition }}"
+                    data-theme="{{ $giscus.theme }}"
+                    data-lang="{{ $giscus.lang }}"
+                    {{- if $giscus.lazy -}} data-loading="lazy" {{- end -}}
+                    crossorigin="anonymous"
+                    async>
+                </script>
+            </div>
+            <noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://giscus.app/">Giscus</a>.
+            </noscript>
+        {{- end -}}
+
     </div>
 {{- end -}}
 

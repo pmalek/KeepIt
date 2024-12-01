@@ -392,6 +392,22 @@
         label = ""
         lightTheme = "github-light"
         darkTheme = "github-dark"
+      # Giscus comment config (https://giscus.app/)
+      [params.page.comment.giscus]
+        enable = false
+        # owner/repo
+        repo = ""
+        repoId = "" # Consult https://giscus.app/
+        category = "Announcements"
+        categoryId = "" # Consult https://giscus.app/
+        mapping = "pathname"
+        reactions = true
+        strict = false
+        emitMetadata = false
+        lazy = true
+        inputPosition = "top"
+        lang  = "en"
+        theme = "light"
     # Third-party library config
     [params.page.library]
       [params.page.library.css]
