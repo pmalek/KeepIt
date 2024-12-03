@@ -164,18 +164,26 @@
     }
 
     .post-footer {
-      margin-top: .4rem;
+      margin-left: 0.7rem;
+      margin-top: .0rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      font-size: .875rem;
-
+      font-size: .7rem;
+      
       @include link(false, false);
 
       .post-tags {
         padding: 0;
 
         @include link(true, true);
+      }
+
+      .post-tag {
+        background-color: #eee;
+        margin-right: .2rem;
+        padding: 0.15rem;
+        border-radius: 0.3rem;
       }
     }
   }
