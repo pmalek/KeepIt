@@ -36,7 +36,7 @@
 
         {{- /* Title */ -}}
         <span class="single-title" itemprop="name headline">
-            <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+            <a href="{{ .RelPermalink }}">{{ .Title | markdownify }}</a>
         </span>
 
     </div>
