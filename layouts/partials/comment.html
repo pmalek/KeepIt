@@ -129,7 +129,8 @@
         {{- $giscus := $comment.giscus | default dict -}}
         {{- if $giscus.enable -}}
             <div id="giscus" class="comment"></div>
-                {{- /* TODO dynamic theme */ -}}
+                {{- /* dynamic theme is done in themes/keepit/assets/js/theme.js */ -}}
+                {{- /* based on https://thiagoalves.ai/adding-comments-to-jekyll-using-giscus/#:~:text=Custom code to work with theme switcher */ -}}
                 <script
                     src="https://giscus.app/client.js"
                     data-repo="{{ $giscus.repo }}"

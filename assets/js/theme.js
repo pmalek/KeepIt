@@ -151,10 +151,27 @@ var Theme = /*#__PURE__*/function () {
       var _this2 = this;
 
       this.util.forEach(document.getElementsByClassName('theme-switch'), function ($themeSwitch) {
+        // Set Theme giscus theme
+        function setGiscusTheme(theme) {
+          var iframe = document.querySelector('.giscus-frame');
+
+          if (iframe) {
+            var url = new URL(iframe.src);
+            url.searchParams.set('theme', theme === 'dark' ? 'dark_dimmed' : 'light');
+            iframe.src = url.toString();
+          }
+        }
+
         $themeSwitch.addEventListener('click', function () {
-          if (document.body.getAttribute('theme') === 'dark') document.body.setAttribute('theme', 'light');else document.body.setAttribute('theme', 'dark');
+          const darkTheme = 'dark';
+          const lightTheme = 'light';
+
+          var theme = document.body.getAttribute('theme') === darkTheme ? lightTheme : darkTheme;
+          document.body.setAttribute('theme', theme);
+          setGiscusTheme(theme);
+
           _this2.isDark = !_this2.isDark;
-          window.localStorage && localStorage.setItem('theme', _this2.isDark ? 'dark' : 'light');
+          window.localStorage && localStorage.setItem('theme', _this2.isDark ? darkTheme : lightTheme);
 
           var _iterator = _createForOfIteratorHelper(_this2.switchThemeEventSet),
               _step;
